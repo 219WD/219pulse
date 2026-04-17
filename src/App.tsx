@@ -14,7 +14,7 @@ export default function App() {
   const {
     reminders,
     now,
-    alert,
+    alert: activeAlert,
     addReminder,
     updateReminder,
     deleteReminder,
@@ -82,7 +82,7 @@ export default function App() {
     setNotifPerm(p);
 
     if (p !== "granted") {
-      alert("No se pudieron activar las notificaciones.");
+      window.alert("No se pudieron activar las notificaciones.");
     }
   };
 
@@ -195,7 +195,7 @@ export default function App() {
         onSubmit={handleSubmit}
       />
 
-      <AlertModal alert={alert} onDismiss={dismissAlert} />
+      <AlertModal alert={activeAlert} onDismiss={dismissAlert} />
     </main>
   );
 }
